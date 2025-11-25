@@ -7,9 +7,11 @@ interface SidebarProps {
   setConfig: React.Dispatch<React.SetStateAction<ModelConfig>>;
   isOpen: boolean;
   toggleSidebar: () => void;
+  apiKey?: string;
+  onOpenApiKeyModal: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSidebar }) => {
+const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSidebar, apiKey, onOpenApiKeyModal }) => {
   const handleChange = (key: keyof ModelConfig, value: any) => {
     setConfig(prev => ({ ...prev, [key]: value }));
   };
@@ -63,7 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
         {/* Parameters */}
         <div className="space-y-6">
           <div className="flex items-center justify-between">
-             <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-2">
+            <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider flex items-center gap-2">
               <Sliders className="w-4 h-4" /> Parameters
             </label>
           </div>
@@ -100,7 +102,7 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
             />
           </div>
 
-           <div className="space-y-2">
+          <div className="space-y-2">
             <div className="flex justify-between text-xs text-gray-400">
               <span>Top P</span>
               <span>{config.topP}</span>
@@ -122,7 +124,7 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
           <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
             Tools & Capabilities
           </label>
-          
+
           <div className="flex items-center justify-between p-3 bg-gray-900 rounded-lg border border-gray-800">
             <div className="flex items-center gap-3">
               <Search className="w-4 h-4 text-blue-400" />
@@ -132,11 +134,11 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
               </div>
             </div>
             <label className="relative inline-flex items-center cursor-pointer">
-              <input 
-                type="checkbox" 
-                checked={config.useSearch} 
+              <input
+                type="checkbox"
+                checked={config.useSearch}
                 onChange={(e) => handleChange('useSearch', e.target.checked)}
-                className="sr-only peer" 
+                className="sr-only peer"
               />
               <div className="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary-600"></div>
             </label>
@@ -152,18 +154,18 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
                 </div>
               </div>
               <label className="relative inline-flex items-center cursor-pointer">
-                <input 
-                  type="checkbox" 
-                  checked={config.useThinking} 
+                <input
+                  type="checkbox"
+                  checked={config.useThinking}
                   onChange={(e) => handleChange('useThinking', e.target.checked)}
-                  className="sr-only peer" 
+                  className="sr-only peer"
                 />
                 <div className="w-9 h-5 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-purple-600"></div>
               </label>
             </div>
-            
+
             {config.useThinking && (
-               <div className="space-y-2 mt-2 pt-2 border-t border-gray-800">
+              <div className="space-y-2 mt-2 pt-2 border-t border-gray-800">
                 <div className="flex justify-between text-xs text-gray-400">
                   <span>Budget (Tokens)</span>
                   <span>{config.thinkingBudget}</span>
@@ -171,7 +173,7 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
                 <input
                   type="range"
                   min="0"
-                  max="8192" 
+                  max="8192"
                   step="128"
                   value={config.thinkingBudget}
                   onChange={(e) => handleChange('thinkingBudget', parseInt(e.target.value))}
@@ -179,6 +181,30 @@ const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, isOpen, toggleSide
                 />
               </div>
             )}
+          </div>
+        </div>
+
+        {/* API Key Settings */}
+        <div className="space-y-4 pt-4 border-t border-gray-800">
+          <label className="text-xs font-semibold text-gray-400 uppercase tracking-wider">
+            API Key Settings
+          </label>
+
+          <div className="flex flex-col p-3 bg-gray-900 rounded-lg border border-gray-800 gap-3">
+            <div className="flex items-center justify-between w-full">
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-gray-200">API Key</span>
+                <span className="text-xs text-gray-500 font-mono">
+                  {apiKey ? `${apiKey.substring(0, 8)}...${apiKey.substring(apiKey.length - 4)}` : 'Not set'}
+                </span>
+              </div>
+              <button
+                onClick={onOpenApiKeyModal}
+                className="px-3 py-1.5 bg-gray-800 hover:bg-gray-700 text-gray-300 rounded-lg text-xs transition-colors border border-gray-700"
+              >
+                {apiKey ? 'Change' : 'Set Key'}
+              </button>
+            </div>
           </div>
         </div>
 

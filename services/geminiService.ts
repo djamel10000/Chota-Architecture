@@ -1,12 +1,6 @@
 import { GoogleGenAI, GenerateContentResponse } from "@google/genai";
 import { ModelConfig, Message, Role } from "../types";
 
-// Initialize the client outside the component to avoid recreation
-// However, since we rely on process.env.API_KEY which might change in some dev environments (though strictly env here),
-// we will instantiate cleanly.
-const apiKey = process.env.API_KEY;
-const ai = new GoogleGenAI({ apiKey: apiKey || '' });
-
 interface StreamCallbacks {
   onChunk: (text: string) => void;
   onComplete: () => void;
@@ -14,6 +8,7 @@ interface StreamCallbacks {
 }
 
 export const sendMessageStream = async (
+  apiKey: string,
   history: Message[],
   newMessage: string,
   attachments: { base64: string; mimeType: string }[],
@@ -21,9 +16,12 @@ export const sendMessageStream = async (
   callbacks: StreamCallbacks
 ) => {
   if (!apiKey) {
-    callbacks.onError(new Error("API Key is missing from environment variables."));
+    callbacks.onError(new Error("API Key is missing. Please provide your Gemini API key."));
     return;
   }
+
+  // Initialize AI client with the provided API key
+  const ai = new GoogleGenAI({ apiKey });
 
   try {
     // 1. Prepare Configuration
@@ -39,7 +37,7 @@ export const sendMessageStream = async (
     if (config.useSearch) {
       tools.push({ googleSearch: {} });
     }
-    
+
     // Thinking Configuration (Only for 2.5 models mostly, but we apply if enabled)
     // Note: Thinking config is usually specific to certain models or modes.
     // Logic: If user specifically enabled thinking, we apply the budget.
@@ -58,15 +56,15 @@ export const sendMessageStream = async (
     // sometimes we rebuild the chat. Here we will use ai.chats.create with previous history.
     // Note: Multimodal history support in `chats` can be tricky depending on SDK version. 
     // We will map our internal Message type to the SDK's Content format.
-    
+
     const validHistory = history.map(msg => {
       const parts: any[] = [];
-      
+
       // Add attachments if any (Images)
       if (msg.attachments && msg.attachments.length > 0) {
         msg.attachments.forEach(att => {
           // Remove prefix like "data:image/png;base64,"
-          const base64Data = att.base64.split(',')[1]; 
+          const base64Data = att.base64.split(',')[1];
           parts.push({
             inlineData: {
               mimeType: att.mimeType,
@@ -75,7 +73,7 @@ export const sendMessageStream = async (
           });
         });
       }
-      
+
       // Add text
       if (msg.text) {
         parts.push({ text: msg.text });
@@ -97,24 +95,24 @@ export const sendMessageStream = async (
     // 4. Prepare Current Message
     // If there are attachments for the *current* message, we need to pass them in sendMessageStream.
     // The `sendMessageStream` accepts a `message` which can be string or Part[].
-    
+
     let messagePayload: string | Array<any> = newMessage;
 
     if (attachments.length > 0) {
-       const parts: any[] = [];
-       attachments.forEach(att => {
-         const base64Data = att.base64.split(',')[1];
-         parts.push({
-           inlineData: {
-             mimeType: att.mimeType,
-             data: base64Data
-           }
-         });
-       });
-       if (newMessage) {
-         parts.push({ text: newMessage });
-       }
-       messagePayload = parts;
+      const parts: any[] = [];
+      attachments.forEach(att => {
+        const base64Data = att.base64.split(',')[1];
+        parts.push({
+          inlineData: {
+            mimeType: att.mimeType,
+            data: base64Data
+          }
+        });
+      });
+      if (newMessage) {
+        parts.push({ text: newMessage });
+      }
+      messagePayload = parts;
     }
 
     // 5. Send Message
@@ -129,7 +127,7 @@ export const sendMessageStream = async (
       // Check for grounding metadata in chunks if needed, usually in the final response aggregation
       // We are streaming text primarily. Grounding metadata usually comes in the candidates.
     }
-    
+
     callbacks.onComplete();
 
   } catch (error: any) {
