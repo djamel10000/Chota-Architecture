@@ -1,0 +1,5 @@
+{
+  "name": "Chotta Architect",
+  "description": "A professional-grade prompt engineering workbench for Google's Gemini models. Features multimodal chat, system instruction configuration, thinking budget controls, and search grounding integration.",
+  "requestFramePermissions": []
+}
