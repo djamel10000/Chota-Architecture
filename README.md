@@ -4,7 +4,7 @@ A professional-grade prompt engineering workbench for Google's Gemini models. Bu
 
 [**🚀 Live Demo**](https://chotta-architect-demo-rockm.netlify.app)
 
-![Chotta Architect UI](https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6)
+
 
 ## 🚀 Features
 
